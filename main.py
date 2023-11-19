@@ -39,7 +39,7 @@ def audio():
 
     response = client.audio.speech.create(model="tts-1", voice="alloy", input=result)
 
-    response.stream_to_file("output.mp3")                                                           
+    response.stream_to_file("static/output.mp3")                                                           
     
     return {"result": "ok", "text": result, "file": "output.mp3"}
 
