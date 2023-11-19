@@ -3,7 +3,6 @@ from pathlib import Path
 from openai import OpenAI
 from dotenv import load_dotenv
 from flask import Flask, render_template, request
-from playsound import playsound
 
 load_dotenv()
 
@@ -41,8 +40,6 @@ def audio():
     response = client.audio.speech.create(model="tts-1", voice="alloy", input=result)
 
     response.stream_to_file("output.mp3")                                                           
-
-    playsound("output.mp3")
     
     return {"result": "ok", "text": result}
 
